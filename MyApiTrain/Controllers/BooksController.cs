@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyApiTrain.BookOparation.CreateBook;
+using MyApiTrain.BookOparation.DeleteBook;
 using MyApiTrain.BookOparation.GetBooks;
 using MyApiTrain.DbOparations;
 using static MyApiTrain.BookOparation.CreateBook.CreateBookCommand;
@@ -117,14 +118,19 @@ namespace MyApiTrain.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            var book = _context.Books.SingleOrDefault(x => x.id == id);
-            if (book is null)
+            try
             {
-                return BadRequest();
+                DeleteBookCommand command=new DeleteBookCommand(_context);
+                command.BookId=id;
+                command.Handle();
+                return Ok();
             }
-            _context.Books.Remove(book);
-            _context.SaveChanges();
-            return Ok();
+            catch (Exception ex)
+            {
+                
+               return BadRequest(ex.Message);
+                
+            }
         }
 
 
