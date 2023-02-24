@@ -41,10 +41,10 @@ namespace MyApiTrain.DbOparations
                     new Book
                     {
                         // id = 4,
-                        Title = "Princesa de Asturias Leonor",
+                        Title = "Harry Potter Chamber of Secrets",
                         GenreId = 3,
                         PageCount = 540,
-                        PublishDate = new DateTime(2005, 10, 31)
+                        PublishDate = new DateTime(2002, 10, 31)
                     }
 );
                 context.SaveChanges();

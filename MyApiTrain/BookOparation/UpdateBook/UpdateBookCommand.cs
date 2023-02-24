@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using MyApiTrain.DbOparations;
 
-namespace MyApiTrain.BookOparation.CreateBook
+namespace MyApiTrain.BookOparation.UpdateBook
 {
     public class UpdateBookCommand
     {

@@ -1,16 +1,19 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MyApiTrain.DbOparations;
 
-namespace MyApiTrain.BookOparation.GetBooks
+namespace MyApiTrain.BookOparation.GetBookById
 {
     public class GetBookQuery
     {
         public int BookId { get; set; }
 
         private readonly BookStoreDbContext _dbcontext;
-        public GetBookQuery(BookStoreDbContext dbContext)
+        private readonly IMapper _mapper;
+        public GetBookQuery(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbcontext = dbContext;
+            _mapper = mapper;
         }
 
         public BookViewModel Handle()
@@ -23,13 +26,13 @@ namespace MyApiTrain.BookOparation.GetBooks
                 throw new InvalidOperationException("Kitap Bulunamadı.");
             }
 
-            BookViewModel vm = new BookViewModel()
-            {
-                Title = book.Title,
-                PageCount = book.PageCount,
-                Genre = ((GenreEnum)book.GenreId).ToString(),
-                PublishDate = book.PublishDate.Date.ToString("dd/MM/yyyy"),
-            };
+            BookViewModel vm =_mapper.Map<BookViewModel>(book);  //new BookViewModel()
+           // {
+           //     Title = book.Title,
+           //     PageCount = book.PageCount,
+           //     Genre = ((GenreEnum)book.GenreId).ToString(),
+           //     PublishDate = book.PublishDate.Date.ToString("dd/MM/yyyy"),
+           // };
 
             return vm;
 
