@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brozt\\Desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj": {}
+    "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brozt\\Desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj": {
+    "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brozt\\Desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj",
+        "projectUniqueName": "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj",
         "projectName": "MyApiTrain",
-        "projectPath": "C:\\Users\\brozt\\Desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj",
+        "projectPath": "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj",
         "packagesPath": "C:\\Users\\brozt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brozt\\Desktop\\VsData\\MyApiTrain\\myapitrain\\obj\\",
+        "outputPath": "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,18 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -81,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

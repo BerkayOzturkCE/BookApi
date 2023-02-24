@@ -5,7 +5,7 @@ namespace MyApiTrain
     {
         PersonalGrowth=1,
         ScienceFiction, 
-        ReinasVival,
+        Fantastic,
         Noval,
     }
 }

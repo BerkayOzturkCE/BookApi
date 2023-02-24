@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MyApiTrain.DbOparations;
 
@@ -7,9 +8,11 @@ namespace MyApiTrain.BookOparation.CreateBook
     {
         public CreateBookModel model{get;set;}
         private readonly BookStoreDbContext _dbcontext;
-        public CreateBookCommand(BookStoreDbContext dbContext)
+        private readonly IMapper _mapper;
+        public CreateBookCommand(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbcontext = dbContext;
+            _mapper = mapper;
         }
 
         public void Handle()
@@ -20,11 +23,11 @@ namespace MyApiTrain.BookOparation.CreateBook
             {
                 throw new InvalidOperationException("Kitap zaten mevcut");
             }
-            book=new Book();
-            book.Title=model.Title;
-            book.PublishDate=model.PublishDate;
-            book.PageCount=model.PageCount;
-            book.GenreId=model.GenreId;
+            book= _mapper.Map<Book>(model); //new Book();
+           // book.Title=model.Title;
+           // book.PublishDate=model.PublishDate;
+           // book.PageCount=model.PageCount;
+           // book.GenreId=model.GenreId;
             _dbcontext.Books.Add(book);
             _dbcontext.SaveChanges();
         }

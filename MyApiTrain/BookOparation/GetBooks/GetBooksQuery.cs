@@ -1,4 +1,5 @@
-    using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using MyApiTrain.DbOparations;
 
 namespace MyApiTrain.BookOparation.GetBooks
@@ -6,26 +7,29 @@ namespace MyApiTrain.BookOparation.GetBooks
     public class GetBooksQuery
     {
         private readonly BookStoreDbContext _dbcontext;
-        public GetBooksQuery(BookStoreDbContext dbContext)
+        private readonly IMapper _mapper;
+        public GetBooksQuery(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbcontext=dbContext;
+            _mapper=mapper;
         }
 
         public List<BooksViewModel> Handle(){
 
             var booksList=_dbcontext.Books.OrderBy(x=>x.id).ToList();
-            List<BooksViewModel> vm=new List<BooksViewModel>();
-            foreach (var book in booksList)
-            {
-                vm.Add(
-                    new BooksViewModel(){
-                        Title=book.Title,
-                        PageCount=book.PageCount,
-                        Genre=((GenreEnum)book.GenreId).ToString(),
-                        PublishDate=book.PublishDate.Date.ToString("dd/MM/yyyy"),
-                    }
-                ); 
-            }
+            List<BooksViewModel> vm= _mapper.Map<List<BooksViewModel>>(booksList    );
+            //new List<BooksViewModel>();
+            //foreach (var book in booksList)
+            //{
+            //    vm.Add(
+            //        new BooksViewModel(){
+            //            Title=book.Title,
+            //            PageCount=book.PageCount,
+            //            Genre=((GenreEnum)book.GenreId).ToString(),
+            //            PublishDate=book.PublishDate.Date.ToString("dd/MM/yyyy"),
+            //        }
+            //    ); 
+            //}
                         return vm;
 
         }
