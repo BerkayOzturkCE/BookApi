@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj": {}
+    "B:\\desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj": {}
   },
   "projects": {
-    "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj": {
+    "B:\\desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj",
+        "projectUniqueName": "B:\\desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj",
         "projectName": "MyApiTrain",
-        "projectPath": "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\MyApiTrain.csproj",
+        "projectPath": "B:\\desktop\\VsData\\MyApiTrain\\myapitrain\\MyApiTrain.csproj",
         "packagesPath": "C:\\Users\\brozt\\.nuget\\packages\\",
-        "outputPath": "B:\\desktop\\VsData\\MyApiTrain\\MyApiTrain\\obj\\",
+        "outputPath": "B:\\desktop\\VsData\\MyApiTrain\\myapitrain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,6 +68,10 @@
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[7.0.1, )"
+            },
+            "Newtonsoft.json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

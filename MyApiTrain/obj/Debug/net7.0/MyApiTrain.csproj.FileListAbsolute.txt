@@ -75,3 +75,4 @@ B:\desktop\VsData\MyApiTrain\MyApiTrain\obj\Debug\net7.0\MyApiTrain.pdb
 B:\desktop\VsData\MyApiTrain\MyApiTrain\obj\Debug\net7.0\MyApiTrain.genruntimeconfig.cache
 B:\desktop\VsData\MyApiTrain\MyApiTrain\obj\Debug\net7.0\ref\MyApiTrain.dll
 B:\desktop\VsData\MyApiTrain\MyApiTrain\bin\Debug\net7.0\FluentValidation.dll
+B:\desktop\VsData\MyApiTrain\MyApiTrain\bin\Debug\net7.0\Newtonsoft.Json.dll

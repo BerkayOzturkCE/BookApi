@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
-using MyApiTrain.BookOparation.CreateBook;
-using MyApiTrain.BookOparation.DeleteBook;
-using MyApiTrain.BookOparation.GetBooks;
-using MyApiTrain.DbOparations;
-using static MyApiTrain.BookOparation.CreateBook.CreateBookCommand;
 using AutoMapper;
+using MyApiTrain.DbOparations;
+
 using FluentValidation;
-using MyApiTrain.BookOparation.UpdateBook;
-using static MyApiTrain.BookOparation.UpdateBook.UpdateBookCommand;
-using MyApiTrain.BookOparation.GetBookById;
+using MyApiTrain.Application.BookOparation.Queries.GetBooks;
+using MyApiTrain.Application.BookOparation.Queries.GetBookById;
+using MyApiTrain.Application.BookOparation.Commands.CreateBook;
+using static MyApiTrain.Application.BookOparation.Commands.CreateBook.CreateBookCommand;
+using MyApiTrain.Application.BookOparation.Commands.UpdateBook;
+using MyApiTrain.Application.BookOparation.Commands.DeleteBook;
+using static MyApiTrain.Application.BookOparation.Commands.UpdateBook.UpdateBookCommand;
 
 namespace MyApiTrain.Controllers
 {
@@ -69,18 +70,13 @@ namespace MyApiTrain.Controllers
         public IActionResult GetBooksById(int id)
         {
             GetBookQuery query = new GetBookQuery(_context, _mapper);
-            try
-            {
+          
                 query.BookId = id;
-                GetBookByIdCommandValidator validator=new GetBookByIdCommandValidator();
+                    GetBookByIdCommandValidator validator=new GetBookByIdCommandValidator();
                 validator.ValidateAndThrow(query);
                 var result = query.Handle();
                 return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+         
 
         }
 
@@ -89,26 +85,12 @@ namespace MyApiTrain.Controllers
         {
             CreateBookCommand command = new CreateBookCommand(_context, _mapper);
 
-            try
-            {
                 command.model = newBook;
                 CreateBookCommandValidator validator = new CreateBookCommandValidator();
                 validator.ValidateAndThrow(command);
-
-
                 command.Handle();
 
                 return Ok();
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-            }
-
         }
 
         [HttpPut("{id}")]
@@ -116,8 +98,7 @@ namespace MyApiTrain.Controllers
         {
             UpdateBookCommand command = new UpdateBookCommand(_context);
 
-            try
-            {
+           
                 command.id = id;
                 command.UpdatedBook = updatedBook;
                 UpdateBookCommandValidator validator=new UpdateBookCommandValidator();
@@ -125,33 +106,20 @@ namespace MyApiTrain.Controllers
                 command.Handle();
                 return Ok();
 
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-
-            }
+           
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            try
-            {
+            
                 DeleteBookCommand command = new DeleteBookCommand(_context);
                 command.BookId = id;
                 DeleteBookCommandValidator validator=new DeleteBookCommandValidator();
                 validator.ValidateAndThrow(command);
                 command.Handle();
                 return Ok();
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-
-            }
+           
         }
 
 
