@@ -64,7 +64,7 @@ namespace MyApiTrain.DbOparations
                     },
                     new Genre
                     {
-                        Name = "ReinasVival",
+                        Name = "Genre1",
                     },
                     new Genre
                     {
